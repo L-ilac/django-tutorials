@@ -1,0 +1,15 @@
+{% if question_list %}
+    <ul>
+    {% for question in question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        <!-- a태그 hard-coded 문제 발생-->
+        <!-- polls:detail 인 이유는 template 폴더를 루트 디렉터리로 옮겼기 때문-->
+        <!-- urls.py 파일안에 path 함수 안에 URL name 을 짓고, 이 이름을 템플릿에서 사용할수 있음 -->
+    {% endfor %}
+    </ul>
+    <li>{{str}}</li>
+    <li>{{num}}</li> 
+    <li>{{list}}</li> 
+{% else %}
+    <p>no polls are available</p>
+{% endif %}
